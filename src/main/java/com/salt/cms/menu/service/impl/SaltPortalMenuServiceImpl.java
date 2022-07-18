@@ -1,7 +1,6 @@
 package com.salt.cms.menu.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.salt.cms.comm.Id;
 import com.salt.cms.comm.R;
 import com.salt.cms.entity.SaltPortalMenuEntity;
 import com.salt.cms.menu.dao.SaltPortalMenuDao;
@@ -13,14 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
+import java.util.UUID;
+
 @Slf4j
 @Service
 public class SaltPortalMenuServiceImpl implements SaltPortalMenuService {
 
     @Autowired
     private SaltPortalMenuDao saltPortalMenuDao;
-    @Autowired
-    private Id ID;
 
 
     @Override
@@ -49,7 +48,7 @@ public class SaltPortalMenuServiceImpl implements SaltPortalMenuService {
             return R.error("请输入数字");
         }
         SaltPortalMenuEntity saltPortalMenuEntity = new SaltPortalMenuEntity();
-        saltPortalMenuEntity.setId(ID.id());
+        saltPortalMenuEntity.setId(UUID.randomUUID().toString());
         saltPortalMenuEntity.setMenuNameEn(spMenuForm.getMenuNameEn());
         saltPortalMenuEntity.setMenuNameJap(spMenuForm.getMenuNameJap());
         saltPortalMenuEntity.setMenuNameSpa(spMenuForm.getMenuNameJap());
