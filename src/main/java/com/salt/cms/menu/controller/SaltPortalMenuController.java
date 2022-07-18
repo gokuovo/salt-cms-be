@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @Slf4j
 @RestController
@@ -17,7 +19,7 @@ public class SaltPortalMenuController {
     private SaltPortalMenuService saltPortalMenuService;
 
     @GetMapping("/getMenu")
-    public SPMenuForm getMenu(){
+    public List<SPMenuForm> getMenu(){
         log.info("开始获取门户菜单信息");
         return saltPortalMenuService.getMenu();
     }
